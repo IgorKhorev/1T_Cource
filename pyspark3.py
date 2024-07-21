@@ -57,8 +57,10 @@ random_date = start_date + timedelta(days=random_days)
 print(f"Случайная дата: {random_date.strftime('%Y-%m-%d')}")
 
 #Генерация случайных данных
+b = int(input("Введите число - границу массива"))
+print(b)
 data5 = []
-for i in range(1, 10):
+for i in range(1, b):
     id = i
     userid = random.randint(1, 10)
     j = random.randint(1, 9)
@@ -85,7 +87,7 @@ df5 = spark.createDataFrame(data5, schema5)
 df5.show(5)
 
 # выгрузка в csv
-df5.coalesce(1).write.csv("data1.csv", header = True )
+df5.coalesce(1).write.csv("data2.csv", header = True )
 
 # Остановите SparkSession
 spark.stop()
